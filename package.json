@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,11 @@
   },
   "homepage": "https://github.com/hyeri0609/studyhtml#readme",
   "dependencies": {
+    "ejs": "^2.5.7",
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "request": "^2.83.0",
+    "tape": "^4.8.0"
   }
 }
