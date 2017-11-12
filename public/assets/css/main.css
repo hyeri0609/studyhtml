@@ -1,5 +1,7 @@
 @import url("font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+@import url("https://fonts.googleapis.com/css?family=Prompt");
+@import url("https://fonts.googleapis.com/css?family=Athiti:500");
 /*
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
@@ -967,7 +969,7 @@ body {
 /* Basic */
 body {
   background: #fff;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Athiti', sans-serif;
   font-size: 19pt;
   font-weight: 300;
   line-height: 1.75em;
@@ -983,7 +985,7 @@ body {
     animation: none !important; }
 
 input, textarea, select {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Athiti', sans-serif;
   font-size: 19pt;
   font-weight: 300;
   line-height: 1.75em;
