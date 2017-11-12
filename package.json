@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node tests/test.js"
+    "test": "node test/test.js",
+    "build-sass": "node-sass public/assets/sass -o public/assets/css",
+    "build": "npm run build-sass && npm test"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "i18n": "^0.8.3"
   },
   "devDependencies": {
+    "node-sass": "^4.6.1",
     "request": "^2.83.0",
     "tape": "^4.8.0"
   }
