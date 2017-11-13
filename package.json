@@ -9,7 +9,7 @@
   "scripts": {
     "start": "DEBUG=express:* node index.js",
     "test": "node test/test.js",
-    "pg": "sudo service postgresql start", //"host=localhost dbname=groceries user=ubuntu password=cloud9isawesome"
+    "pg": "sudo service postgresql start",
     "build-sass": "node-sass public/assets/sass -o public/assets/css",
     "build": "npm run build-sass && npm test"
   },
@@ -27,6 +27,7 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "i18n": "^0.8.3",
+    "passport": "^0.4.0",
     "pg-promise": "^7.3.1"
   },
   "devDependencies": {
