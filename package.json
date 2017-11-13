@@ -10,7 +10,7 @@
     "start": "DEBUG=express:* node index.js",
     "test": "node test/test.js",
     "pg": "sudo service postgresql start",
-    "build-sass": "node-sass public/assets/sass -o public/assets/css",
+    "build-sass": "node-sass sass -o public/css",
     "build": "npm run build-sass && npm test"
   },
   "repository": {

@@ -13,9 +13,7 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/admin', function(request, response) {
-  response.render('pages/admin/index');
-});
+app.get('/admin', (request, response) => response.render('pages/admin'));
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
