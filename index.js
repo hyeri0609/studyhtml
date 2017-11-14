@@ -1,6 +1,22 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var passport = require('passport') , LocalStrategy = require('passport-local').Strategy;
+  
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
   // app.use(express.static('public'));
   // app.use(express.cookieParser());
@@ -47,6 +63,12 @@ apirouter.route('/textformat').post(function(req, res) {
   res.json({ message: 'hooray! welcome to our api!' }); 
 });
 app.use('/api', apirouter);
+
+
+
+
+
+app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }));
 
 app.get('/', function(request, response) {
   response.render('pages/index');
