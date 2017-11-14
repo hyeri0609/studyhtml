@@ -22,7 +22,7 @@ test('responds to requests', (t) => {
       t.equal(response.statusCode, 200);
       // Assert content checks
       t.notEqual(body.indexOf("<title>studyhtml</title>"), -1);
-      t.notEqual(body.indexOf("assets/css/main.css"), -1);
+      t.notEqual(body.indexOf("css/main.css"), -1);
     });
   });
 });
