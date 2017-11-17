@@ -37,7 +37,7 @@ passport.use(new LocalStrategy(
 // app.use(passport.session());
 
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8080));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -75,6 +75,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/admin', (request, response) => response.render('pages/admin'));
+app.get('/baseline', (request, response) => response.render('pages/baseline'));
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
