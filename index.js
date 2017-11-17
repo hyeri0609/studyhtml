@@ -76,6 +76,7 @@ app.get('/', function(request, response) {
 
 app.get('/admin', (request, response) => response.render('pages/admin'));
 app.get('/baseline', (request, response) => response.render('pages/baseline'));
+app.get('/prologue', (request, response) => response.render('pages/prologue'));
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
