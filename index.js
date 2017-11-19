@@ -1,8 +1,11 @@
 var express = require('express');
-var app = express();
+var favicon = require('serve-favicon');
+
 var bodyParser = require('body-parser');
 var passport = require('passport') , LocalStrategy = require('passport-local').Strategy;
   
+var app = express();
+
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
@@ -42,27 +45,29 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/icons/favicon.ico'));
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 //app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 
-
-
-
-
-
-
 var apirouter = express.Router();
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-apirouter.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
-});
-apirouter.route('/textformat').post(function(req, res) {
-  //console.log(req);
-  console.log(req.body.data);
-  res.json({ message: 'hooray! welcome to our api!' }); 
-});
+var testapi = require('./api/testapi');
+testapi(apirouter);
 app.use('/api', apirouter);
+
+// var apirouter = express.Router();
+// // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+// apirouter.get('/', function(req, res) {
+//     res.json({ message: 'hooray! welcome to our api!' });   
+// });
+// apirouter.route('/textformat').post(function(req, res) {
+//   //console.log(req);
+//   console.log(req.body.data);
+//   res.json({ message: 'hooray! welcome to our api!' }); 
+// });
+// app.use('/api', apirouter);
 
 
 

@@ -1,0 +1,15 @@
+body {
+	background: #fff;
+	//font-family: 'Source Sans Pro', sans-serif;
+	//font-family: 'Athiti', sans-serif;
+	font-family: 'Kanit', sans-serif;
+	font-size: 19pt;
+	font-weight: 300;
+	line-height: 1.75em;
+	color: #888;
+
+	&.is-loading * {
+		@include vendor('transition', 'none !important');
+		@include vendor('animation', 'none !important');
+	}
+}

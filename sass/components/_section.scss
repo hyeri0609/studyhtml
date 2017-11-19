@@ -1,0 +1,13 @@
+section, article {
+	margin-bottom: 3em;
+
+	> :last-child,
+	> .container,
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	.row > & {
+		margin-bottom: 0;
+	}
+}
