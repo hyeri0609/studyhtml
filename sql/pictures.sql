@@ -1,9 +1,8 @@
-CREATE TABLE oauth_tokens (
-    id uuid NOT NULL,
-    access_token text NOT NULL,
-    access_token_expires_on timestamp without time zone NOT NULL,
-    client_id text NOT NULL,
-    refresh_token text NOT NULL,
-    refresh_token_expires_on timestamp without time zone NOT NULL,
+CREATE TABLE pictures (
+    pic_id uuid NOT NULL,
+    pic_bytea bytea NOT NULL,
+    pic_text text NULL,
+    --blob?
+    created_date timestamp without time zone NOT NULL,
     user_id uuid NOT NULL
 );
