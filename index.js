@@ -51,11 +51,12 @@ app.use(favicon(__dirname + '/public/icons/favicon.ico'));
 //app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-
 var apirouter = express.Router();
 var testapi = require('./api/testapi');
 testapi(apirouter);
 app.use('/api', apirouter);
+
+app.use('/api2', require('./api/testapi2'));
 
 // var apirouter = express.Router();
 // // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
