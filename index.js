@@ -52,8 +52,16 @@ app.use(favicon(__dirname + '/public/icons/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 var apirouter = express.Router();
+apirouter.get('/', function(req, res) {
+    res.json({ message: 'Please contact developer for API docs.' });   
+});
+    
 var testapi = require('./api/testapi');
 testapi(apirouter);
+
+var picture = require('./api/picture');
+picture(apirouter);
+
 app.use('/api', apirouter);
 
 app.use('/api2', require('./api/testapi2'));

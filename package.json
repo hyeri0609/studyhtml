@@ -9,6 +9,8 @@
   "scripts": {
     "start": "DEBUG=express:* node index.js",
     "test": "node test/test.js",
+    
+    "testapi": "node test/testapi.js",
     "pg": "sudo service postgresql start",
     "sass": "node-sass sass -o public/css",
     "build": "npm run build-sass && npm test"
