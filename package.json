@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "DEBUG=express:* node index.js",
+    "test": "mocha --recursive test",
     "testtape": "node testtape/test.js",
     "testtapeapi": "node testtape/testapi.js",
     "pg": "sudo service postgresql start",
