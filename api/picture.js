@@ -1,11 +1,11 @@
 'use strict';
 module.exports = function(router) {
     router.get('/picture', function(req, res) {
-        res.json({ message: 'api get!' });   
+        res.json({ message: 'get ok' });   
     });
     router.post('/picture', function(req, res) {
-              console.log(req.body.data);
-        res.json({ message: 'api post!' });   
+              //console.log(req.body.data);
+        res.json({ message: 'post ok' });   
     });
     router.put('/picture', function(req, res) {
               console.log(req.body.data);

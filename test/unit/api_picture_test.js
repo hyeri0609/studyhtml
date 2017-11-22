@@ -32,7 +32,7 @@ describe('picturejs api', function() {
     });
     
     describe('start express and add picture.js api', function() {
-        it('should response from /api', function(done) {
+        it('should response for /api from get method', function(done) {
             request(app.listen())
                 .get('/api')
                 .set('Accept', 'application/json')
@@ -40,6 +40,33 @@ describe('picturejs api', function() {
                 .expect('Content-Type', /json/)
                 .end(function(err, res) {
                     //console.log(res);
+                    if (err) return done(err);
+                    done();
+                });
+        });
+    });
+    
+    describe('post /api/picture', function() {
+        it('should accept a picture', function(done) {
+            request(app.listen())
+                .post('/api/picture')
+                .expect(200)
+                .end(function(err, res) {
+                    res.body.should.have.property('message', 'post ok');
+                    if (err) return done(err);
+                    done();
+                });
+        });
+    });
+    
+    describe('get /api/picture', function() {
+        it('should return a picture', function(done) {
+            request(app.listen())
+                .get('/api/picture')
+                .expect(200)
+                .end(function(err, res) {
+                    //console.log(res.body);
+                    res.body.should.have.property('message', 'get ok');
                     if (err) return done(err);
                     done();
                 });
