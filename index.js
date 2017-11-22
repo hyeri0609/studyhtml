@@ -88,6 +88,7 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.get('/uploadpic', (request, response) => response.render('pages/uploadpic'));
 app.get('/admin', (request, response) => response.render('pages/admin'));
 app.get('/baseline', (request, response) => response.render('pages/baseline'));
 app.get('/prologue', (request, response) => response.render('pages/prologue'));
