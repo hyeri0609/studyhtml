@@ -22,6 +22,7 @@ describe('picturejs api', function() {
         
         var apirouter = express.Router();
         apirouter.get('/', function(req, res) {
+            //res.set('Content-Type', 'application/json');
             res.json({ message: 'ok' });   
         });
         var picture = require('../../api/picture');
@@ -31,17 +32,15 @@ describe('picturejs api', function() {
     });
     
     describe('start express and add picture.js api', function() {
-        it('should response from /', function(done) {
+        it('should response from /api', function(done) {
             request(app.listen())
-                .get('/')
-                .end(function() {
-                    // oauth.server.authenticate.callCount.should.equal(1);
-                    // oauth.server.authenticate.firstCall.args.should.have.length(3);
-                    // oauth.server.authenticate.firstCall.args[0].should.be.an.instanceOf(Request);
-                    // oauth.server.authenticate.firstCall.args[1].should.be.an.instanceOf(Response);
-                    // should.not.exist(oauth.server.authenticate.firstCall.args[2])
-                    // oauth.server.authenticate.restore();
-            
+                .get('/api')
+                .set('Accept', 'application/json')
+                .expect(200)
+                .expect('Content-Type', /json/)
+                .end(function(err, res) {
+                    //console.log(res);
+                    if (err) return done(err);
                     done();
                 });
         });
