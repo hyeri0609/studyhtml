@@ -670,7 +670,7 @@ print 'It took ' + i + ' iterations to sort the deck.';
 					&copy; Untitled. All rights reserved.
 				</div>
 			</footer>
-<form id="upload_pic_form" enctype="multipart/form-data" style="height:1px;"><input id="fileImage" type="file" style="visibility:hidden" onchange="upload_image();" accept="image/*" /></form>
+<form id="upload_pic_form" enctype="multipart/form-data" style="height:1px;"><input id="fileImage" name="fileImage" type="file" style="visibility:hidden" onchange="upload_image();" accept="image/*" /></form>
 
 			<script src="../baselines/js/skel.min.js"></script>
 			<script src="../baselines/js/main.js"></script>
@@ -679,7 +679,7 @@ function upload_image() {
     var uInput = document.getElementById('fileImage');
     if (uInput.files[0]) {
         var formData = new FormData();
-        formData.append("fileImage", uInput.files[0], uInput.value);
+        formData.append("fileImage", uInput.files[0]);
         //formData.append("memberId", '@ViewBag.memberId'); formData.append("saleproduct_code", $('#saleproduct_code').val());
         // $.ajax({
         //     type: 'post', url: 'api/picture',
@@ -697,7 +697,7 @@ function upload_image() {
             }
         };
         xhttp.open("POST", "api/picture", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //xhttp.setRequestHeader("Content-type", "multipart/form-data");
         xhttp.send(formData);
     }
 }
