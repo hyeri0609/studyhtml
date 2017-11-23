@@ -35,10 +35,11 @@
 				<h2>Hi, I'm Baseline</h2>
 				<p>A super simple starting point for projects based on <a href="http://skel.io">Skel</a>.</p>
 				<ul class="actions">
-					<li><a href="#" class="button special" onclick="document.getElementById('upload_pic_input').click();">Upload</a></li>
+					<li><a href="" class="button special" >Upload</a></li>
 					<li><a href="#elements" class="button">Elements</a></li>
 					<li><a href="#grid" class="button alt">Grid System</a></li>
 				</ul>
+
 			</section>
 
 		<!-- Main -->
@@ -47,6 +48,8 @@
 <input type="file" name="fileImage"><br>
 <input type="submit">
 </form>
+<br/>
+<button id="up1" onclick="document.getElementById('fileImage').click();">Upload</button>
 				<!-- Intro -->
 					<div class="row">
 						<section class="6u 12u$(medium)">
@@ -667,13 +670,13 @@ print 'It took ' + i + ' iterations to sort the deck.';
 					&copy; Untitled. All rights reserved.
 				</div>
 			</footer>
-<form id="upload_pic_form" enctype="multipart/form-data" style="height:1px;"><input id="upload_pic_input" type="file" style="visibility:hidden" onchange="upload_image();" accept="image/*" /></form>
+<form id="upload_pic_form" enctype="multipart/form-data" style="height:1px;"><input id="fileImage" type="file" style="visibility:hidden" onchange="upload_image();" accept="image/*" /></form>
 
 			<script src="../baselines/js/skel.min.js"></script>
 			<script src="../baselines/js/main.js"></script>
 <script>
 function upload_image() {
-    var uInput = document.getElementById('upload_pic_input');
+    var uInput = document.getElementById('fileImage');
     if (uInput.files[0]) {
         var formData = new FormData();
         formData.append("fileImage", uInput.files[0], uInput.value);

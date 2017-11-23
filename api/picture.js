@@ -17,10 +17,7 @@ module.exports = function(router) {
         form.maxFieldsSize = 2 * 1024 * 1024;
         form.maxFields = 1000;
         form.parse(req, function (err, fields, files) {
-            if (err) {
-                res.status(500);
-                res.json({'success': false});
-            }
+            if (err) throw err;
             // `file` is the name of the <input> field of type `file`
             var old_path = files.fileImage.path,
             //file_size = files.file.size,
@@ -32,16 +29,19 @@ module.exports = function(router) {
                 if (err) {
                     res.status(500);
                     res.json({'success': false});
+                                    throw err;
                 }
                 fs.writeFile(new_path, data, function(err) {
                     if (err) {
                         res.status(500);
                         res.json({'success': false});
+                                        throw err;
                     }
                     fs.unlink(old_path, function(err) {
                         if (err) {
                             res.status(500);
                             res.json({'success': false});
+                                            throw err;
                         } else {
                             res.status(200);
                             res.json({'success': true});
