@@ -7,7 +7,7 @@ if (cluster.isMaster) {
   console.log(`Master ${process.pid} is running`);
   
   cluster.setupMaster({
-    exec: 'worker.js'
+    exec: 'server.js'
   });
 
   // Fork workers.
@@ -16,14 +16,19 @@ if (cluster.isMaster) {
   }
 
   cluster.on('exit', (worker, code, signal) => {
-    console.log('worker %d died (%s). check code if want to restart...', worker.process.pid, signal || code);
+    console.log('worker %d died (%s).', worker.process.pid, signal || code);
     
-    // console.log('worker %d died (%s). restarting...', worker.process.pid, signal || code);
-    // cluster.fork();
+    console.log('forking...');
+    cluster.fork();
+    console.log('forked...');
+    
+    var countWorker = 0;
     for (const id in cluster.workers) {
-      var worker = cluster.workers[id];
-      console.log(worker.id);
+      countWorker++;
+      // var worker = cluster.workers[id];
+      // console.log("worker.id: " + worker.id);
     }
+    console.log("count workers: " + countWorker)
   });
 } else {
 
