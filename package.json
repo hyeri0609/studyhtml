@@ -7,8 +7,12 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=express:* node index.js",
+    "start": "DEBUG=express:* node worker.js",
     "test": "mocha --recursive test",
+    
+    "start-with-debug": "DEBUG=express:* node index.js",
+    "start-for-test": "DEBUG=express:* node --trace-sync-io index.js",
+    "start-cluster": "node index.js",
     "pg": "sudo service postgresql start",
     "sass": "node-sass sass -o public/css",
     "build": "npm run build-sass && npm test"
@@ -25,6 +29,7 @@
   "homepage": "https://github.com/hyeri0609/studyhtml#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "formidable": "^1.1.1",
