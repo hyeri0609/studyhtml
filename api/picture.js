@@ -1,3 +1,35 @@
+/* 
+//// upload form
+<form action="api/picture" method="post" enctype="multipart/form-data">
+<input type="file" name="fileImage"><br>
+<input type="submit">
+</form>
+
+//// upload XMLHttpRequest
+<button id="uploadFile" onclick="document.getElementById('fileImage').click();">Upload</button>
+
+<form id="fileImage_form" enctype="multipart/form-data" style="height:1px;">
+    <input id="fileImage" name="fileImage" type="file" style="visibility:hidden" onchange="upload_image();" accept="image/*" />
+</form>
+
+function upload_image() {
+    var uInput = document.getElementById('fileImage');
+    if (uInput.files[0]) {
+        var formData = new FormData();
+        formData.append("fileImage", uInput.files[0]);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+        xhttp.open("POST", "api/picture", true);
+        //xhttp.setRequestHeader("Content-type", "multipart/form-data");
+        xhttp.send(formData);
+    }
+}
+*/
+
 'use strict';
 var formidable = require('formidable');
 var fs = require('fs');
